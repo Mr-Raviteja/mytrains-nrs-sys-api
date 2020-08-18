@@ -1,0 +1,21 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://thalesgroup.com/RTTI/2013-11-28/Token/types" xmlns:ldb="http://thalesgroup.com/RTTI/2017-10-01/ldb/">
+   <soapenv:Header>
+      <typ:AccessToken>
+         <typ:TokenValue>1fd94cdf-a8db-4cd7-a9b8-5fcdd400939b</typ:TokenValue>
+      </typ:AccessToken>
+   </soapenv:Header>
+   <soapenv:Body>
+      <ldb:GetArrBoardWithDetailsRequest>
+         <ldb:numRows>1</ldb:numRows>
+         <ldb:crs>ABK</ldb:crs>
+         <!--Optional:-->
+         <ldb:filterCrs>?</ldb:filterCrs>
+         <!--Optional:-->
+         <ldb:filterType>to</ldb:filterType>
+         <!--Optional:-->
+         <ldb:timeOffset>0</ldb:timeOffset>
+         <!--Optional:-->
+         <ldb:timeWindow>120</ldb:timeWindow>
+      </ldb:GetArrBoardWithDetailsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="trains-input-example" format="xml">
+      <types:example format="xml" element="{http://schemas.xmlsoap.org/soap/envelope/}Envelope" location="trains-input-example.xml"/>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#81c2d2d0-c366-4324-8110-35fb6ca8fdaa">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="trains-input-example"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
