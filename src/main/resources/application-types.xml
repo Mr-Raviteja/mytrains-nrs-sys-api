@@ -4,12 +4,25 @@
     <types:type name="trains-input-example" format="xml">
       <types:example format="xml" element="{http://schemas.xmlsoap.org/soap/envelope/}Envelope" location="trains-input-example.xml"/>
     </types:type>
+    <types:type name="eta" format="java">
+      <types:shape format="raml"><![CDATA[#%RAML 1.0 DataType
+type: string]]></types:shape>
+    </types:type>
   </types:catalog>
   <types:enrichment select="#81c2d2d0-c366-4324-8110-35fb6ca8fdaa">
     <types:processor-declaration>
       <types:output-event>
         <types:message>
           <types:payload type="trains-input-example"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#61b192e2-ab70-4f57-bdf2-16c0c3ae0b95">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="eta"/>
         </types:message>
       </types:output-event>
     </types:processor-declaration>

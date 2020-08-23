@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
-	xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc"
-	xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:validation="http://www.mulesoft.org/schema/mule/validation" xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc" xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
 http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd
-http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd">
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd">
 	<json-logger:config name="JSON_Logger_Config" doc:name="JSON Logger Config" doc:id="3aff3240-0665-441f-9618-afeb3d022319" applicationName="mytrains-notifications-sys-api" environment="dev" applicationVersion="1.0.0-SNAPSHOT"/>
 	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="a9bcb8b5-cc28-45d1-8915-9fe6db42d69b" >
 		<http:request-connection protocol="HTTPS" host="lite.realtime.nationalrail.co.uk" />
@@ -58,8 +59,11 @@ headers : {
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
+ns ns0 http://thalesgroup.com/RTTI/2017-10-01/ldb
+ns ns1 http://thalesgroup.com/RTTI/2017-10-01/ldb
+
 ---
-payload]]></ee:set-payload>
+payload.body.GetArrBoardWithDetailsResponse.GetStationBoardResult]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 		<json-logger:logger doc:name="Logger" doc:id="32305b66-b1fc-4ca6-be31-3edbbd4048aa" message="#['JSON Logger']" tracePoint="AFTER_TRANSFORM" config-ref="JSON_Logger_Config" />
