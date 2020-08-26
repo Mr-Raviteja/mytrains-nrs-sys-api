@@ -9,12 +9,12 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd
 http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
 http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd">
-	<json-logger:config name="JSON_Logger_Config" doc:name="JSON Logger Config" doc:id="3aff3240-0665-441f-9618-afeb3d022319" applicationName="mytrains-notifications-sys-api" environment="dev" applicationVersion="1.0.0-SNAPSHOT"/>
-	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="a9bcb8b5-cc28-45d1-8915-9fe6db42d69b" >
+	<json-logger:config name="JSON_Logger_Config" doc:name="JSON Logger Config" doc:id="a62483d2-0bc1-4a89-99ea-bba5cfaf0da6" applicationName="mytrains-notifications-sys-api" environment="dev" applicationVersion="1.0.0-SNAPSHOT"/>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="6910394d-6eb9-4fcd-9668-b621fda88f3d" >
 		<http:request-connection protocol="HTTPS" host="lite.realtime.nationalrail.co.uk" />
 	</http:request-config>
 	
-	<wsc:config name="Web_Service_Consumer_Config" doc:name="Web Service Consumer Config" doc:id="8f2db2ac-b16b-49cb-8d4f-b713fae0643a" >
+	<wsc:config name="Web_Service_Consumer_Config" doc:name="Web Service Consumer Config" doc:id="90c9c747-0442-4a7d-a9bf-4ec133014ddc" >
 		<wsc:connection wsdlLocation="https://lite.realtime.nationalrail.co.uk/OpenLDBWS/wsdl.aspx?ver=2017-10-01" service="ldb" port="LDBServiceSoap" address="https://lite.realtime.nationalrail.co.uk/OpenLDBWS/ldb11.asmx" />
 	</wsc:config>
 	<flow name="trains-nrs-sys-api-getTrains" doc:id="e44ed288-d85f-4940-b9eb-171cd77d3bdc" >
